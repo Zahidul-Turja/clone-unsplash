@@ -4,13 +4,16 @@ import requests
 from .static_data import test_data
 
 
+CLIENT_ID = "xJt3ueEHF-iFVzywR-czMBWaDH9O_uvsptbC-kPTQD0"
+
+
 #! functions
 def trim_list(list_item: list, page_no: int = 0):
     last_ind = page_no + 9
     return list_item[page_no:last_ind]
 
 
-def make_url(is_searching: bool, search_key: str = "", page_no=0, CLIENT_ID: str = ""):
+def make_url(is_searching: bool, search_key: str = "", page_no=0):
     # ! setting base url
     BASE_URL = "https://api.unsplash.com/"
 
@@ -38,14 +41,14 @@ def api_call(search_key: str = "", page_no=1):
         page (int, default=1): Current Page number.
     """
 
-    CLIENT_ID = "xJt3ueEHF-iFVzywR-czMBWaDH9O_uvsptbC-kPTQD0"
+    # CLIENT_ID = "xJt3ueEHF-iFVzywR-czMBWaDH9O_uvsptbC-kPTQD0"
 
     is_searching = False
 
     if search_key:
         is_searching = True
 
-    final_url = make_url(is_searching, search_key, page_no, CLIENT_ID)
+    final_url = make_url(is_searching, search_key, page_no)
 
     # ? IMPORTANT: search returns dict and normal feed returns list
     response = requests.get(final_url)
@@ -64,9 +67,14 @@ def api_call(search_key: str = "", page_no=1):
 #! Create your views here.
 
 def index(request):
-    # ! data = api_call(search_key="cats")
+    if request.method == "POST":
+        data = api_call(search_key=request.POST.get("search_text"))
+    # data = api_call(search_key="cats")
+    else:
+        data = api_call()
+    # data = test_data
     res = {
-        "images": test_data,
+        "images": data,
     }
 
     return render(request, "unsplash_app/index.html", res)

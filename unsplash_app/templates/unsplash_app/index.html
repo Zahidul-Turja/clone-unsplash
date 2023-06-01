@@ -16,8 +16,10 @@
         <div class="header_container">
             <h1 class="header_title">Unsplash</h1>
             <p class="header_para">The internet's source for visuals.<br>Powered by creators everywhere.</p>
-            {% comment %} form {% endcomment %}
-            <p class="span">search (replace with actual input element)</p>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="text" name="search_text" class="search_box" placeholder="search">
+            </form>
             <p class="header_trending">Trending: <span>flower, wallpapers, backgrounds</span></p>
         </div>
     </header>

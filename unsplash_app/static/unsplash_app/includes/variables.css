@@ -2,6 +2,7 @@
     --primary_color: #5ec576;  
     --color_white: #fff;
     --color_black: #000;
+    --color_gray: #333;
     --text_color-link: #555;
 
     --background_lg: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
