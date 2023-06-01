@@ -1,3 +1,7 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'unsplash_app/includes/grid.css' %}">
+
 {% if forloop.counter0|divisibleby:3 %}
     <div class="row">
 {% endif %}

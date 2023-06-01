@@ -43,8 +43,8 @@
     transition: all 0.2s;
 }
 
-.nav_links .nav-item:not(:last-of-type) a:hover,
-.nav_links .nav-item:not(:last-of-type) a:active {
+.nav-links .nav-item:not(:last-of-type) a:hover,
+.nav-links .nav-item:not(:last-of-type) a:active {
     color: var(--primary_color);
 }
 

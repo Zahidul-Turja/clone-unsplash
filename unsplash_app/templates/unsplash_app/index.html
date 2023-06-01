@@ -4,8 +4,6 @@
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'unsplash_app/index.css' %}">
     <link rel="stylesheet" href="{% static 'unsplash_app/includes/base.css' %}">
-    <link rel="stylesheet" href="{% static 'unsplash_app/nav.css' %}">
-    <link rel="stylesheet" href="{% static 'unsplash_app/includes/grid.css' %}">
 {% endblock css_files %}
 
 {% block title %}
@@ -14,7 +12,7 @@
 
 {% block content %}
     {% include "unsplash_app/includes/nav.html" %}
-    <header class="section__header">
+    <header class="section__header" id="section-header">
         <div class="header_container">
             <h1 class="header_title">Unsplash</h1>
             <p class="header_para">The internet's source for visuals.<br>Powered by creators everywhere.</p>
@@ -53,5 +51,5 @@
     {% for img in images %}
             {% include "unsplash_app/includes/all-posts.html" %}
     {% endfor %}
-        
+        {% include "unsplash_app/includes/footer.html" %}
 {% endblock content %}

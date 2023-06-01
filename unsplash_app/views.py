@@ -1,6 +1,8 @@
 from django.shortcuts import render
 import requests
 
+from .static_data import test_data
+
 
 #! functions
 def trim_list(list_item: list, page_no: int = 0):
@@ -62,9 +64,9 @@ def api_call(search_key: str = "", page_no=1):
 #! Create your views here.
 
 def index(request):
-    data = api_call(search_key="cats")
+    # ! data = api_call(search_key="cats")
     res = {
-        "images": data,
+        "images": test_data,
     }
 
     return render(request, "unsplash_app/index.html", res)
