@@ -1,0 +1,11 @@
+{% if forloop.counter0|divisibleby:3 %}
+    <div class="row">
+{% endif %}
+<div class="col-1-of-3">
+    <img  src=  {{ img.urls.small }} alt="Img" loading="lazy">
+    <h2>{{ img.likes }}</h2>
+    <p>{{ img.alt_description}}</p>
+</div>
+{% if forloop.counter|divisibleby:3 %}
+    </div>
+{% endif %}

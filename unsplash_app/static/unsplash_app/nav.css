@@ -1,0 +1,78 @@
+@import url("includes/variables.css");
+
+.section__nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3.2rem;
+    width: 100dvw;
+    padding: 0 2.5rem;
+    background-color: var(--color_white);
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.15);
+}
+
+.section__nav .nav_links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding-bottom: 0.2rem;
+}
+
+
+.nav-logo{
+    height: auto;
+    margin-left: 2rem;
+}
+
+.nav-logo img {
+    height: 3rem;
+}
+
+.nav_links .nav-item {
+    margin-left: 2rem;
+    font-size: 100%;
+}
+
+
+.nav_links .nav-item a:link,
+.nav_links .nav-item a:visited {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text_color-link);
+    transition: all 0.2s;
+}
+
+.nav_links .nav-item:not(:last-of-type) a:hover,
+.nav_links .nav-item:not(:last-of-type) a:active {
+    color: var(--primary_color);
+}
+
+
+.nav_links .nav-submit {
+    margin-left: 1rem;
+    padding: 5px 20px;
+    border-style: solid;
+    border-color: var(--primary_color);
+    border-radius: 3px;
+    border-width: 1.5px;
+    transition: all 0.2s;
+}
+
+.nav_links .nav-submit a:link,
+.nav_links .nav-submit a:visited{
+    color: var(--primary_color);
+}
+
+.nav_links .nav-submit:hover,
+.nav_links .nav-submit:active {
+    cursor: pointer;
+    background-color: var(--primary_color);
+}
+
+.nav_links .nav-submit:hover a,
+.nav_links .nav-submit:active a{
+    color: var(--color_white);
+}
+
+
