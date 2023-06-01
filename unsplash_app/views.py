@@ -4,6 +4,7 @@ import requests
 from .static_data import test_data
 
 
+# ? Hide before uploading to GitHub
 CLIENT_ID = "xJt3ueEHF-iFVzywR-czMBWaDH9O_uvsptbC-kPTQD0"
 
 
@@ -40,8 +41,6 @@ def api_call(search_key: str = "", page_no=1):
         search_key (str, default=""): The search key if is_searching True.
         page (int, default=1): Current Page number.
     """
-
-    # CLIENT_ID = "xJt3ueEHF-iFVzywR-czMBWaDH9O_uvsptbC-kPTQD0"
 
     is_searching = False
 
