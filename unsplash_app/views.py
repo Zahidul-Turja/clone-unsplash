@@ -81,3 +81,7 @@ def index(request):
 
 def login(request):
     return render(request, "unsplash_app/login.html")
+
+
+def signup(request):
+    return render(request, "unsplash_app/signup.html")

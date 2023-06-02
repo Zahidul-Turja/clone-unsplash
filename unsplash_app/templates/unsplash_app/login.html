@@ -3,5 +3,14 @@
 {% block title %}Login{% endblock title %}
 
 {% block content %}
-    <h1>Successfull</h1>
+    <div class="section__login">
+        <form action="" method="POST">
+            <label for="login_email">Email</label>
+            <input type="email" name="login-email", placeholder="Your email" id="login_email">
+            <label for="login_password">Password</label>
+            <input type="password" name="login-password", placeholder="Password", id="login_password">
+            <button class="btn btn_login">Login</button>
+        </form>
+        <p>don't have an account? <a href="{% url 'sign-up' %}">sign up</a></p>
+    </div>
 {% endblock content %}

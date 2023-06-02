@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign up{% endblock title %}
+
+{% block content %}
+    <div class="section__signup">
+        <form action="" method="POST">
+            <label for="signup_first-name">First name</label>
+            <input type="text" name="first-name" placeholder="First name" id="signup_first-name">
+            <label for="signup_last-name">Last name</label>
+            <input type="text" name="last-name" placeholder="Last name" id="signup_last-name">
+            <label for="user_name">User name</label>
+            <input type="text" name="user-name" placeholder="User name(unique)" id="user_name">
+            <label for="signup_email">Email</label>
+            <input type="email" name="signup-email", placeholder="Your email" id="signup_email">
+            <label for="signup_password">Password</label>
+            <input type="password" name="signup-password", placeholder="Password", id="signup_password">
+            <button class="btn btn_signup">Sign up</button>
+        </form>
+    </div>
+{% endblock content %}
