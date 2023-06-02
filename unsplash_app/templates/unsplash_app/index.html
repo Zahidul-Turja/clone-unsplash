@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+    Testing
+{% endblock title %}
+
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'unsplash_app/index.css' %}">
     <link rel="stylesheet" href="{% static 'unsplash_app/includes/base.css' %}">
 {% endblock css_files %}
-
-{% block title %}
-    Testing
-{% endblock title %}
 
 {% block content %}
     {% include "unsplash_app/includes/nav.html" %}
@@ -23,33 +23,6 @@
             <p class="header_trending">Trending: <span>flower, wallpapers, backgrounds</span></p>
         </div>
     </header>
-    {% comment %} <div class="row">
-    {% for key, img in images.items %}
-        <div class="col-1-of-3">
-            <img src=  {{ img.urls.small }} alt="">
-            <h2>{{ img.likes }}</h2>
-            <p>{{ img.alt_description}}</p>
-        </div>
-    {% endfor %}
-    </div> {% endcomment %}
-    
-    {% comment %} {% for index, img in enumerate(images) %}
-        {% if index%3 == 0 %}
-            <div class="row">
-        {% endif %}
-            <div class="col-1-of-3">
-                <img src=  {{ img.urls.small }} alt="">
-                <h2>{{ img.likes }}</h2>
-                <p>{{ img.alt_description}}</p>
-            </div>
-        {% if index%3 == 0 %}
-            </div>
-        {% endif %}
-        {% if len(images)%3 != 0 %}</div>{% endif %}
-    {% endfor %}
-
-    {% for img_list in  %}{% endfor %} {% endcomment %}
-
     {% for img in images %}
             {% include "unsplash_app/includes/all-posts.html" %}
     {% endfor %}
