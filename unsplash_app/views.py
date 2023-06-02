@@ -77,3 +77,7 @@ def index(request):
     }
 
     return render(request, "unsplash_app/index.html", res)
+
+
+def login(request):
+    return render(request, "unsplash_app/login.html")
