@@ -1,14 +1,13 @@
 from django.shortcuts import render
 import requests
 
-from .static_data import test_data
+from .static_data import test_data, CLIENT_ID
 
-
-# ? Hide before uploading to GitHub
-CLIENT_ID = "xJt3ueEHF-iFVzywR-czMBWaDH9O_uvsptbC-kPTQD0"
-
+# ? Hide CLIENT_ID before uploading to GitHub
 
 #! functions
+
+
 def trim_list(list_item: list, page_no: int = 0):
     last_ind = page_no + 9
     return list_item[page_no:last_ind]
