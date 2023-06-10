@@ -73,6 +73,7 @@ def index(request):
     # data = test_data
     res = {
         "images": data,
+        "logged_in": False
     }
 
     return render(request, "unsplash_app/index.html", res)

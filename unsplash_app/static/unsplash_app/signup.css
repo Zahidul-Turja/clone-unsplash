@@ -45,6 +45,13 @@
     background-size: cover;
 }
 
+.section__signup-right a img {
+    float: right;
+    width: 2.5rem;
+    height: auto;
+    transform: translate(-20px, 20px);
+}
+
 
 .section__signup-left {
     display: flex;
@@ -56,9 +63,9 @@
     width: 58%;
 }
 
-.section__signup-left h1 {
+.section__signup-left h2 {
     font-family: sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color_gray);
     margin-top: 1.5rem;
 }
@@ -99,7 +106,7 @@ form input::placeholder {
     height: 2rem;
     width: 100%;
     margin-top: 2.2rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     letter-spacing: 1.5px;
     border: none;
     background-color: var(--color_gray);
@@ -138,4 +145,5 @@ form input::placeholder {
     text-decoration: none;
     border-bottom: 1.5px solid black;
 }
+
 

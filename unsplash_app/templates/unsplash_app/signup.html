@@ -12,21 +12,21 @@
     <div class="section__signup">
         <div class="section__signup-box">
             <div class="section__signup-left">
-                <h1>Create an account</h1>
+                <h2>Create an account</h2>
                 <form action="" method="POST">
-                    {% comment %} <label for="signup_name">Name</label> {% endcomment %}
                     <input type="text" name="full-name" placeholder="Name" id="signup_name">
-                    {% comment %} <label for="user_name">User name</label> {% endcomment %}
                     <input type="text" name="user-name" placeholder="User name" id="user_name">
-                    {% comment %} <label for="signup_email">Email</label> {% endcomment %}
                     <input type="email" name="signup-email", placeholder="Your email" id="signup_email">
-                    {% comment %} <label for="signup_password">Password</label> {% endcomment %}
                     <input type="password" name="signup-password", placeholder="Password", id="signup_password">
                     <button class="btn btn_signup">Sign up</button>
                 </form>
                 <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
             </div>
-            <div class="section__signup-right"></div>
+            <div class="section__signup-right">
+                <a href="{% url 'home-page' %}">
+                    <img src="{% static 'unsplash_app/images/unsplash_logo.png' %}" alt="Home">
+                </a>
+            </div>
         </div>
     </div>
 {% endblock content %}
