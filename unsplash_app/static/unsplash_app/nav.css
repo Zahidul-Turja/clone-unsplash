@@ -51,10 +51,8 @@
 .nav_links .nav-submit {
     margin-left: 1rem;
     padding: 5px 20px;
-    border-style: solid;
-    border-color: var(--primary_color);
     border-radius: 3px;
-    border-width: 1.5px;
+    border: 2px solid var(--primary_color);
     transition: all 0.2s;
 }
 

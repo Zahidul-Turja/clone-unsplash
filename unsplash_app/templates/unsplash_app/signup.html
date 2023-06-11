@@ -14,10 +14,11 @@
             <div class="section__signup-left">
                 <h2>Create an account</h2>
                 <form action="" method="POST">
-                    <input type="text" name="full-name" placeholder="Name" id="signup_name">
-                    <input type="text" name="user-name" placeholder="User name" id="user_name">
-                    <input type="email" name="signup-email", placeholder="Your email" id="signup_email">
-                    <input type="password" name="signup-password", placeholder="Password", id="signup_password">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Name" id="signup_name">
+                    <input type="text" name="user_name" placeholder="User name (unique)" id="user_name">
+                    <input type="email" name="email", placeholder="Your email" id="signup_email">
+                    <input type="password" name="password", placeholder="Password", id="signup_password">
                     <button class="btn btn_signup">Sign up</button>
                 </form>
                 <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>

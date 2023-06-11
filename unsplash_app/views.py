@@ -1,5 +1,10 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
 import requests
+
+from .forms import UserForm
+from .models import User
 
 from .static_data import test_data, CLIENT_ID
 
@@ -80,8 +85,30 @@ def index(request):
 
 
 def login(request):
+    if request.method == "POST":
+        user_name = request.POST["user_name"]
+        potential_user = User.objects.get(pk=user_name)
+        return render(request, "unsplash_app/test.html", {
+            "test": potential_user
+        })
+
     return render(request, "unsplash_app/login.html")
 
 
 def signup(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect("/login")
+        else:
+            return render(request, "unsplash_app/test.html", {
+                "form": form
+            })
+
+    else:
+        form = UserForm()
+
     return render(request, "unsplash_app/signup.html")
