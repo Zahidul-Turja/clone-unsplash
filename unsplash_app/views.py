@@ -87,10 +87,17 @@ def index(request):
 def login(request):
     if request.method == "POST":
         user_name = request.POST["user_name"]
+        user_pass = request.POST["login-password"]
         potential_user = User.objects.get(pk=user_name)
-        return render(request, "unsplash_app/test.html", {
-            "test": potential_user
-        })
+        pass_word = potential_user.password
+        if potential_user and pass_word == user_pass:
+            return render(request, "unsplash_app/index.html", {
+                "test": potential_user
+            })
+        else:
+            return render(request, "unsplash_app/test.html", {
+                "test": potential_user
+            })
 
     return render(request, "unsplash_app/login.html")
 
