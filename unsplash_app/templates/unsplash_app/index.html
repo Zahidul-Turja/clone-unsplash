@@ -8,6 +8,7 @@
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'unsplash_app/index.css' %}">
     <link rel="stylesheet" href="{% static 'unsplash_app/includes/base.css' %}">
+    <link rel="stylesheet" href="{% static 'unsplash_app/icofont/icofont.min.css' %}">
 {% endblock css_files %}
 
 {% block content %}
@@ -29,6 +30,32 @@
                 {% include "unsplash_app/includes/all-posts.html" %}
         {% endfor %}
     </section>
+    <section class="modal hidden">
+        <img
+          src="{% static '/unsplash_app/images/brown.jpg' %}"
+          alt=""
+        />
+        <div class="modal-nav">
+          <div class="modal_top-left">
+            <h2>Lucus Bordiao</h2>
+            <p>Available for hire &#x2713;</p>
+          </div>
+          <div class="modal_top-right">
+            <i class="icon icofont-heart"></i>
+            <i class="icon icofont-plus"></i>
+            <button class="btn-download">Download</button>
+            <select class="dropdown">
+              <option value="full">Large</option>
+              <option value="regular">Medium</option>
+              <option value="small">Small</option>
+            </select>
+          </div>
+        </div>
+      </section>
+  
+      <div class="overlay hidden">
+        <p>x</p>
+      </div>
         {% include "unsplash_app/includes/footer.html" %}
 
         <script>

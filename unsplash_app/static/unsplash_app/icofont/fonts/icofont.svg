@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+<font id="icofont" horiz-adv-x="1000" >
+<font-face font-family="IcoFont" font-weight="400" font-style="Regular" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="heart" horiz-adv-x="1000" unicode="&#xef45;" d="M500 595c16 28 36 52 60 72 90 73 230 66 311-17 64-66 80-145 55-232-19-68-56-126-100-180-73-87-160-155-255-215-21-13-43-26-64-38-3-2-9-3-12-1-109 62-211 134-296 227-52 55-94 117-119 189-21 60-25 120 1 179 34 76 94 123 177 135 104 14 185-25 240-116 0-1 1-1 2-3z" />
+<glyph glyph-name="arrow-down" horiz-adv-x="1000" unicode="&#xea5b;" d="M772 358l-53 54c-9 8-24 8-32 0l-137-137v352c0 13-10 23-23 23h-90c-13 0-23-10-23-23v-343l-127 128c-9 8-23 8-32 0l-54-54c-8-9-8-23 0-32l270-269c9-9 23-9 32 0l269 269c9 9 9 23 0 32z" />
+<glyph glyph-name="plus" horiz-adv-x="1000" unicode="&#xefc2;" d="M935 390c-1 15-3 30-6 46h-343v343c-16 3-31 5-44 7-13 1-26 2-39 2-15 0-29-1-43-2-14-1-30-4-46-7v-343h-343c-3-16-6-31-7-44-1-13-2-25-2-38 0-16 1-30 2-44 1-14 4-29 7-45h343v-344c16-3 31-6 44-7 13-1 26-1 39-1 15 0 29 0 43 1 14 1 29 4 46 7v344h343c3 16 5 30 6 43 2 13 2 26 2 39 1 15 0 29-2 43z" />
+<glyph glyph-name="check" horiz-adv-x="1000" unicode="&#xeed8;" d="M396 106l-193 192c-4 5-4 12 0 17l66 65c4 4 11 4 16 0l108-108c4-4 11-4 16 0 101 108 202 215 303 322 4 5 12 5 16 1l68-65c5-4 5-11 1-16-129-136-257-272-385-408-4-5-12-5-16 0z" />
+</font>
+</defs>
+</svg>

@@ -100,3 +100,132 @@ body::-webkit-scrollbar {
     transform: scale(1.05);
     box-shadow: 5px 12px 20px rgba(0, 0, 0, 0.5);
 }
+
+
+/* OVERLAY */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  text-align: center;
+
+  font-family: sans-serif;
+  color: #333;
+  background-color: white;
+  padding-top: 3.5rem;
+  padding-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 6000;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 2000;
+}
+
+.overlay p {
+  position: absolute;
+  top: -10px;
+  left: 1.5rem;
+  padding: 1rem;
+
+  font-family: sans-serif;
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+.overlay p:hover {
+  cursor: pointer;
+  color: #eee;
+}
+
+.modal img {
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+.modal-nav {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal_top-right,
+.modal_top-left {
+  text-align: left;
+  margin: 0 1rem;
+}
+
+.modal_top-left h2 {
+  font-size: 1rem;
+}
+
+.modal_top-left p {
+  font-size: 0.7rem;
+  color: #4076ad;
+}
+
+.modal_top-right {
+  top: 1.5rem;
+  right: 1rem;
+  height: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-download,
+select,
+.modal_top-right i {
+  font-size: 0.7rem;
+  color: #555;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-right: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  transition: all 0.2s;
+}
+
+select {
+  margin-right: 0;
+}
+
+select:focus-visible {
+  color: #000;
+  outline: 1px solid white;
+}
+
+option {
+    font-size: 0.7rem;
+}
+
+select:hover {
+  color: #000;
+  cursor: pointer;
+}
+
+.btn-download:hover,
+.modal_top-right i:hover,
+.modal_top-left i:hover {
+  cursor: pointer;
+  color: #000;
+  border: 1px solid #000;
+}
+
+.hidden {
+  display: none;
+}
