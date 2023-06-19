@@ -23,8 +23,17 @@
             <p class="header_trending">Trending: <span>flower, wallpapers, backgrounds</span></p>
         </div>
     </header>
-    {% for img in images %}
-            {% include "unsplash_app/includes/all-posts.html" %}
-    {% endfor %}
+    <section class="image_gallery">
+        <h1>Image Gallery</h1>
+        {% for img in images %}
+                {% include "unsplash_app/includes/all-posts.html" %}
+        {% endfor %}
+    </section>
         {% include "unsplash_app/includes/footer.html" %}
+
+        <script>
+            var imagesData = JSON.parse('{{ json_img|escapejs }}');
+        </script>
+    
+        <script id="script" src="{% static 'unsplash_app/js/app.js'%}"></script> 
 {% endblock content %}

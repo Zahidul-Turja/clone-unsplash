@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
+from django.urls import reverse
+
 import requests
+from json import dumps
 
 from .forms import UserForm
 from .models import User
@@ -69,16 +72,18 @@ def api_call(search_key: str = "", page_no=1):
 
 #! Create your views here.
 
-def index(request):
+def index(request, logged_in=False):
     if request.method == "POST":
         data = api_call(search_key=request.POST.get("search_text"))
     # data = api_call(search_key="cats")
     else:
         data = api_call()
     # data = test_data
+    json_data = dumps(data)
     res = {
         "images": data,
-        "logged_in": False
+        "logged_in": logged_in,
+        "json_img": json_data
     }
 
     return render(request, "unsplash_app/index.html", res)
@@ -91,9 +96,10 @@ def login(request):
         potential_user = User.objects.get(pk=user_name)
         pass_word = potential_user.password
         if potential_user and pass_word == user_pass:
-            return render(request, "unsplash_app/index.html", {
-                "test": potential_user
-            })
+            return HttpResponseRedirect(reverse("logged-in-succ", args=[user_name]))
+            # return render(request, "unsplash_app/index.html", {
+            #     "test": potential_user,
+            # })
         else:
             return render(request, "unsplash_app/test.html", {
                 "test": potential_user
@@ -119,3 +125,21 @@ def signup(request):
         form = UserForm()
 
     return render(request, "unsplash_app/signup.html")
+
+
+def logged_in(request, user_name):
+    if request.method == "POST":
+        data = api_call(search_key=request.POST.get("search_text"))
+    # data = api_call(search_key="cats")
+    else:
+        data = api_call()
+    # data = test_data
+    json_data = dumps(data)
+    res = {
+        "images": data,
+        "logged_in": True,
+        "json_img": json_data,
+        "user_name": user_name
+    }
+
+    return render(request, "unsplash_app/index.html", res)

@@ -9,7 +9,7 @@
 
 .row {
   max-width: var(--grid-width);
-  margin: 5rem auto;
+  margin: 3rem auto;
 }
 .row:not(:last-child) {
   margin-bottom: var(--gutter-vertical);
