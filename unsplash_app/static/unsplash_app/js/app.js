@@ -1,3 +1,6 @@
+CLIENT_ID = "xJt3ueEHF-iFVzywR-czMBWaDH9O_uvsptbC-kPTQD0"
+
+
 // ! Gallery Cards var
 const IMAGES = imagesData;
 const explore = document.getElementById("explore");
@@ -20,7 +23,7 @@ img_cards.forEach(card => {
         IMAGES.forEach(img => {
             if (img.id === card.id) {
                 current_img = img
-                console.log(img.urls.full)
+                console.log(img.urls.regular)
                 modal_img.src = img.urls.regular
                 modal.classList.remove("hidden");
                 overlay.classList.remove("hidden");
@@ -42,6 +45,7 @@ console.log(IMAGES[0])
   download_btn.addEventListener("click", () => {
     const dropdown_value = document.querySelector(".dropdown").value;
     console.log(dropdown_value);
-    let downlod_url = current_img.links.download_location+";client_id=xJt3ueEHF-iFVzywR-czMBWaDH9O_uvsptbC-kPTQD0"
-    window.open(downlod_url, '_blank');
+    let download_url = current_img.urls[dropdown_value]
+    window.open(download_url, '_blank');
   });
+

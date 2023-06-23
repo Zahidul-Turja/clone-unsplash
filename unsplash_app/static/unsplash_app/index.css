@@ -219,11 +219,18 @@ select:hover {
 }
 
 .btn-download:hover,
+.btn-download:active,
 .modal_top-right i:hover,
 .modal_top-left i:hover {
+  text-decoration: none;
   cursor: pointer;
   color: #000;
   border: 1px solid #000;
+}
+
+.btn-download:visited,
+.btn-download:link {
+  text-decoration: none;
 }
 
 .hidden {

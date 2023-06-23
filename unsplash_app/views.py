@@ -3,6 +3,10 @@ from django.http import HttpResponseRedirect
 
 from django.urls import reverse
 
+# ! Views
+from django.views import View
+from django.views.generic import ListView
+
 import requests
 from json import dumps
 
@@ -143,3 +147,10 @@ def logged_in(request, user_name):
     }
 
     return render(request, "unsplash_app/index.html", res)
+
+
+class UserProfile(View):
+    template_name = "unsplash_app/profile.html"
+
+    def get(self, request, user_name):
+        return render(request, "unsplash_app/profile.html", {})
