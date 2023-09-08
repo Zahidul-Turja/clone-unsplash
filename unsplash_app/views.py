@@ -11,7 +11,7 @@ import requests
 from json import dumps
 
 from .forms import UserForm
-from .models import User
+from .models import User, Post, Tag
 
 from .static_data import test_data, CLIENT_ID
 
@@ -151,6 +151,17 @@ def logged_in(request, user_name):
 
 class UserProfile(View):
     template_name = "unsplash_app/profile.html"
+    model = User
 
     def get(self, request, user_name):
-        return render(request, "unsplash_app/profile.html", {})
+        user_info = User.objects.get(pk=user_name)
+
+        context = {
+            "name": user_info.name,
+            "user_name": user_info.user_name,
+            "profile_image": user_info.profile_image,
+            "about": user_info.about,
+            "posts": user_info.posts.all(),  # type: ignore
+            "logged_in": True
+        }
+        return render(request, "unsplash_app/profile.html", context)

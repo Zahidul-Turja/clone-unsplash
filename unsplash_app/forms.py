@@ -9,6 +9,7 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = "__all__"
+        exclude = ["profile_image"]
 
         error_messages = {
             "user_name": {

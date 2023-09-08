@@ -14,6 +14,8 @@ const author = document.querySelector(".modal_top-left h2");
 const download_btn = document.querySelector(".btn-download");
 const modal_img = document.querySelector(".modal img")
 
+const photographer = document.getElementById("photographer")
+
 // ! Local Vars
 let current_img
 
@@ -25,6 +27,7 @@ img_cards.forEach(card => {
                 current_img = img
                 console.log(img.urls.regular)
                 modal_img.src = img.urls.regular
+                photographer.textContent = img.user.name
                 modal.classList.remove("hidden");
                 overlay.classList.remove("hidden");
                 // window.open(img.urls.full, '_blank');
