@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+    Unsplash Clone
+{% endblock title %}
+
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'unsplash_app/index.css' %}">
     <link rel="stylesheet" href="{% static 'unsplash_app/includes/base.css' %}">
+    <link rel="stylesheet" href="{% static 'unsplash_app/icofont/icofont.min.css' %}">
 {% endblock css_files %}
-
-{% block title %}
-    Testing
-{% endblock title %}
 
 {% block content %}
     {% include "unsplash_app/includes/nav.html" %}
@@ -23,35 +24,44 @@
             <p class="header_trending">Trending: <span>flower, wallpapers, backgrounds</span></p>
         </div>
     </header>
-    {% comment %} <div class="row">
-    {% for key, img in images.items %}
-        <div class="col-1-of-3">
-            <img src=  {{ img.urls.small }} alt="">
-            <h2>{{ img.likes }}</h2>
-            <p>{{ img.alt_description}}</p>
+    <section class="image_gallery">
+        <h1>Image Gallery</h1>
+        {% for img in images %}
+                {% include "unsplash_app/includes/all-posts.html" %}
+        {% endfor %}
+    </section>
+    <section class="modal hidden">
+        <img
+          download
+          src="{% static '/unsplash_app/images/brown.jpg' %}"
+          alt=""
+        />
+        <div class="modal-nav">
+          <div class="modal_top-left">
+            <h2 id="photographer">Lucus Bordiao</h2>
+            <p>Available for hire &#x2713;</p>
+          </div>
+          <div class="modal_top-right">
+            <i class="icon icofont-heart"></i>
+            <i class="icon icofont-plus"></i>
+            <a class="btn-download">Download</a>
+            <select class="dropdown">
+              <option value="full">Large</option>
+              <option value="regular">Medium</option>
+              <option value="small">Small</option>
+            </select>
+          </div>
         </div>
-    {% endfor %}
-    </div> {% endcomment %}
-    
-    {% comment %} {% for index, img in enumerate(images) %}
-        {% if index%3 == 0 %}
-            <div class="row">
-        {% endif %}
-            <div class="col-1-of-3">
-                <img src=  {{ img.urls.small }} alt="">
-                <h2>{{ img.likes }}</h2>
-                <p>{{ img.alt_description}}</p>
-            </div>
-        {% if index%3 == 0 %}
-            </div>
-        {% endif %}
-        {% if len(images)%3 != 0 %}</div>{% endif %}
-    {% endfor %}
-
-    {% for img_list in  %}{% endfor %} {% endcomment %}
-
-    {% for img in images %}
-            {% include "unsplash_app/includes/all-posts.html" %}
-    {% endfor %}
+      </section>
+  
+      <div class="overlay hidden">
+        <p>x</p>
+      </div>
         {% include "unsplash_app/includes/footer.html" %}
+
+        <script>
+            var imagesData = JSON.parse('{{ json_img|escapejs }}');
+        </script>
+    
+        <script id="script" src="{% static 'unsplash_app/js/app.js'%}"></script> 
 {% endblock content %}

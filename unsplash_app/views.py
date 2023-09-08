@@ -1,14 +1,25 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+
+from django.urls import reverse
+
+# ! Views
+from django.views import View
+from django.views.generic import ListView
+
 import requests
+from json import dumps
 
-from .static_data import test_data
+from .forms import UserForm
+from .models import User, Post, Tag
 
+from .static_data import test_data, CLIENT_ID
 
-# ? Hide before uploading to GitHub
-CLIENT_ID = "xJt3ueEHF-iFVzywR-czMBWaDH9O_uvsptbC-kPTQD0"
-
+# ? Hide CLIENT_ID before uploading to GitHub
 
 #! functions
+
+
 def trim_list(list_item: list, page_no: int = 0):
     last_ind = page_no + 9
     return list_item[page_no:last_ind]
@@ -65,15 +76,92 @@ def api_call(search_key: str = "", page_no=1):
 
 #! Create your views here.
 
-def index(request):
+def index(request, logged_in=False):
     if request.method == "POST":
         data = api_call(search_key=request.POST.get("search_text"))
     # data = api_call(search_key="cats")
     else:
         data = api_call()
     # data = test_data
+    json_data = dumps(data)
     res = {
         "images": data,
+        "logged_in": logged_in,
+        "json_img": json_data
     }
 
     return render(request, "unsplash_app/index.html", res)
+
+
+def login(request):
+    if request.method == "POST":
+        user_name = request.POST["user_name"]
+        user_pass = request.POST["login-password"]
+        potential_user = User.objects.get(pk=user_name)
+        pass_word = potential_user.password
+        if potential_user and pass_word == user_pass:
+            return HttpResponseRedirect(reverse("logged-in-succ", args=[user_name]))
+            # return render(request, "unsplash_app/index.html", {
+            #     "test": potential_user,
+            # })
+        else:
+            return render(request, "unsplash_app/test.html", {
+                "test": potential_user
+            })
+
+    return render(request, "unsplash_app/login.html")
+
+
+def signup(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return HttpResponseRedirect("/login")
+        else:
+            return render(request, "unsplash_app/test.html", {
+                "form": form
+            })
+
+    else:
+        form = UserForm()
+
+    return render(request, "unsplash_app/signup.html")
+
+
+def logged_in(request, user_name):
+    if request.method == "POST":
+        data = api_call(search_key=request.POST.get("search_text"))
+    # data = api_call(search_key="cats")
+    else:
+        data = api_call()
+    # data = test_data
+    json_data = dumps(data)
+    res = {
+        "images": data,
+        "logged_in": True,
+        "json_img": json_data,
+        "user_name": user_name
+    }
+
+    return render(request, "unsplash_app/index.html", res)
+
+
+class UserProfile(View):
+    template_name = "unsplash_app/profile.html"
+    model = User
+
+    def get(self, request, user_name):
+        user_info = User.objects.get(pk=user_name)
+
+        context = {
+            "name": user_info.name,
+            "user_name": user_info.user_name,
+            "profile_image": user_info.profile_image,
+            "about": user_info.about,
+            "posts": user_info.posts.all(),  # type: ignore
+            "logged_in": True
+        }
+        return render(request, "unsplash_app/profile.html", context)

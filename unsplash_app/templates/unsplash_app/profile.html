@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ name|title }}{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'unsplash_app/profile.css' %}">
+{% endblock css_files %}
+
+{% block content %}
+    {% comment %} {% include "unsplash_app/includes/nav.html" %} {% endcomment %}
+    <div class="user_info">
+        {% if  profile_image  %}
+            <img src="{{ profile_image.url }}" alt="">
+        {% else %}
+            <img src="{% static '/unsplash_app/images/placeholder-profile-image.jpg' %}" alt="">
+        {% endif %}
+        <div class="user_info-name">
+            <h1>{{name}}</h1>
+            <a href="">Edit profile</a>
+        </div>
+        <p>{{ about }}</p>
+    </div>
+{% endblock content %}

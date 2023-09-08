@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Sign up{% endblock title %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'unsplash_app/signup.css' %}">
+{% endblock css_files %}
+
+
+{% block content %}
+    <div class="section__signup">
+        <div class="section__signup-box">
+            <div class="section__signup-left">
+                <h2>Create an account</h2>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Name" id="signup_name">
+                    <input type="text" name="user_name" placeholder="User name (unique)" id="user_name">
+                    <input type="email" name="email", placeholder="Your email" id="signup_email">
+                    <input type="password" name="password", placeholder="Password", id="signup_password">
+                    <button class="btn btn_signup">Sign up</button>
+                </form>
+                <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+            </div>
+            <div class="section__signup-right">
+                <a href="{% url 'home-page' %}">
+                    <img src="{% static 'unsplash_app/images/unsplash_logo.png' %}" alt="Home">
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
