@@ -11,3 +11,9 @@ These instructions will help you set up and run the project on your local machin
 - Python (version 3.x)
 - Django (version 3.x)
 - Unsplash API Key (Get it from [Unsplash Developer](https://unsplash.com/developers))
+
+> pip install -r requirements.txt
+
+> UNSPLASH_ACCESS_KEY=your-unsplash-api-key
+
+> python manage.py runserver
