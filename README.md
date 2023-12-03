@@ -1,9 +1,13 @@
 # Unsplash Clone
 
-This application uses `unsplash-api` to get the images (10 at a time) and renders these images to the page.
+A Django project that utilizes the Unsplash API to fetch and display images. The project includes authentication, login, and sign-up features.
 
-## Languages and Frameworks
+## Getting Started
 
-* Python
-* Html, css, js
-* Django
+These instructions will help you set up and run the project on your local machine.
+
+### Prerequisites
+
+- Python (version 3.x)
+- Django (version 3.x)
+- Unsplash API Key (Get it from [Unsplash Developer](https://unsplash.com/developers))
